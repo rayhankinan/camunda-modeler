@@ -1,0 +1,63 @@
+{
+  "components": [
+    {
+      "text": "# Invoice from Zalora",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1p6i127",
+        "columns": null
+      },
+      "id": "Field_1cnz6if"
+    },
+    {
+      "text": "Hello {{name}}!",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_05o9z0l",
+        "columns": null
+      },
+      "id": "Field_1axgg33"
+    },
+    {
+      "text": "Your Total: {{price}} dollar(s)",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1leo7y0",
+        "columns": null
+      },
+      "id": "Field_1wv4w4q"
+    },
+    {
+      "values": [
+        {
+          "label": "Yes",
+          "value": "Yes"
+        },
+        {
+          "label": "No",
+          "value": "No"
+        }
+      ],
+      "label": "Please pay the equal amount!",
+      "type": "radio",
+      "layout": {
+        "row": "Row_0sx99hs",
+        "columns": null
+      },
+      "id": "Field_0s75ukb",
+      "key": "isPaying"
+    }
+  ],
+  "type": "default",
+  "id": "invoice_form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0"
+  },
+  "schemaVersion": 10
+}

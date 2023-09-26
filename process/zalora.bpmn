@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1a9xruv" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.15.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0">
+  <bpmn:process id="zalora_checkout" name="Zalora Checkout" isExecutable="true">
+    <bpmn:extensionElements>
+      <zeebe:userTaskForm id="userTaskForm_1vasf9j">{
+  "components": [
+    {
+      "text": "# Welcome to Zalora!",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_03mgpbh",
+        "columns": null
+      },
+      "id": "Field_1trzvwz"
+    },
+    {
+      "label": "What is your name?",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_02y9qne",
+        "columns": null
+      },
+      "id": "Field_02r6cj8",
+      "key": "name",
+      "validate": {
+        "maxLength": 255
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "T-Shirt",
+          "value": "T-Shirt"
+        },
+        {
+          "label": "Jacket",
+          "value": "Jacket"
+        },
+        {
+          "label": "Trouser",
+          "value": "Trouser"
+        }
+      ],
+      "label": "Select the clothes you want to buy!",
+      "type": "select",
+      "layout": {
+        "row": "Row_1gflzuo",
+        "columns": null
+      },
+      "id": "Field_1tbgad5",
+      "key": "clothes",
+      "searchable": true
+    }
+  ],
+  "type": "default",
+  "id": "checkout_form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_1nq2h25">{
+  "components": [
+    {
+      "text": "# Invoice from Zalora",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1p6i127",
+        "columns": null
+      },
+      "id": "Field_1cnz6if"
+    },
+    {
+      "text": "Hello {{name}}!",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_05o9z0l",
+        "columns": null
+      },
+      "id": "Field_1axgg33"
+    },
+    {
+      "text": "Your Total: {{price}} dollar(s)",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1leo7y0",
+        "columns": null
+      },
+      "id": "Field_1wv4w4q"
+    },
+    {
+      "values": [
+        {
+          "label": "Yes",
+          "value": "Yes"
+        },
+        {
+          "label": "No",
+          "value": "No"
+        }
+      ],
+      "label": "Please pay the equal amount!",
+      "type": "radio",
+      "layout": {
+        "row": "Row_0sx99hs",
+        "columns": null
+      },
+      "id": "Field_0s75ukb",
+      "key": "isPaying"
+    }
+  ],
+  "type": "default",
+  "id": "invoice_form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_38ih13n">{
+  "components": [
+    {
+      "text": "# Invoice Expiration from Zalora",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1p0ma6f",
+        "columns": null
+      },
+      "id": "Field_0ti4e4v"
+    },
+    {
+      "text": "I'm sorry {{name}}!",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0o1ow1p",
+        "columns": null
+      },
+      "id": "Field_1y3xcqd"
+    },
+    {
+      "text": "Your invoice for {{clothes}} has expired",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_17wp9y2",
+        "columns": null
+      },
+      "id": "Field_0k6ggti"
+    }
+  ],
+  "type": "default",
+  "id": "expired_form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_20qbl52">{
+  "components": [
+    {
+      "text": "# Invoice cancellation from Zalora",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1d3kvr9",
+        "columns": null
+      },
+      "id": "Field_1k7xe27"
+    },
+    {
+      "text": "Hi {{name}}!",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1vjzvku",
+        "columns": null
+      },
+      "id": "Field_19mvgjp"
+    },
+    {
+      "text": "Your invoice for {{clothes}} has been cancelled",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1dqimy3",
+        "columns": null
+      },
+      "id": "Field_1ve80it"
+    }
+  ],
+  "type": "default",
+  "id": "cancelled_form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="userTaskForm_11uni27">{
+  "components": [
+    {
+      "text": "# Invoice confirmation from Zalora",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0kbpq72",
+        "columns": null
+      },
+      "id": "Field_0xt2ck4"
+    },
+    {
+      "text": "Hi {{name}}!",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0m94kxf",
+        "columns": null
+      },
+      "id": "Field_0en7wvi"
+    },
+    {
+      "text": "Your invoice for {{clothes}} has been paid",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_11m99n9",
+        "columns": null
+      },
+      "id": "Field_1oe2g9l"
+    }
+  ],
+  "type": "default",
+  "id": "Form_0xi9r1y",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0"
+  },
+  "schemaVersion": 10
+}</zeebe:userTaskForm>
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="Event_03ufvv9" name="Start Event">
+      <bpmn:outgoing>Flow_0cajegj</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0cajegj" sourceRef="Event_03ufvv9" targetRef="Activity_1g4rpg6" />
+    <bpmn:userTask id="Activity_1g4rpg6" name="Select the clothes">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_1vasf9j" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0cajegj</bpmn:incoming>
+      <bpmn:outgoing>Flow_02tum6j</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_02tum6j" sourceRef="Activity_1g4rpg6" targetRef="Activity_1q7lfun" />
+    <bpmn:serviceTask id="Activity_1q7lfun" name="Processing checkout">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="zalora-invoice" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_02tum6j</bpmn:incoming>
+      <bpmn:outgoing>Flow_19civro</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_19civro" sourceRef="Activity_1q7lfun" targetRef="Activity_1wri3gj" />
+    <bpmn:userTask id="Activity_1wri3gj" name="Display the invoice">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_1nq2h25" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_19civro</bpmn:incoming>
+      <bpmn:outgoing>Flow_10disqx</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:boundaryEvent id="Event_1eusv81" attachedToRef="Activity_1wri3gj">
+      <bpmn:outgoing>Flow_1eh5ksc</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_0rpmo45">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT60S</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_1eh5ksc" sourceRef="Event_1eusv81" targetRef="Activity_1m1ff0x" />
+    <bpmn:userTask id="Activity_1m1ff0x" name="Display invoice expiration">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_38ih13n" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1eh5ksc</bpmn:incoming>
+      <bpmn:outgoing>Flow_0kj0ur3</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_0dsyg76" name="End Event">
+      <bpmn:incoming>Flow_0kj0ur3</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0kj0ur3" sourceRef="Activity_1m1ff0x" targetRef="Event_0dsyg76" />
+    <bpmn:exclusiveGateway id="Gateway_0me4mlt" name="Start Gateway">
+      <bpmn:incoming>Flow_10disqx</bpmn:incoming>
+      <bpmn:outgoing>Flow_0hdnx7x</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1sx8lz8</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_10disqx" sourceRef="Activity_1wri3gj" targetRef="Gateway_0me4mlt" />
+    <bpmn:sequenceFlow id="Flow_0hdnx7x" name="isPaying = &#34;Yes&#34;" sourceRef="Gateway_0me4mlt" targetRef="Activity_16kupjo">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=isPaying = "Yes"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1sx8lz8" name="isPaying = &#34;No&#34;" sourceRef="Gateway_0me4mlt" targetRef="Activity_1aguwj6">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=isPaying = "No"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:userTask id="Activity_16kupjo" name="Display confirmation for paying">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_11uni27" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0hdnx7x</bpmn:incoming>
+      <bpmn:outgoing>Flow_0mln2sn</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_1aguwj6" name="Display confirmation for not paying">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_20qbl52" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1sx8lz8</bpmn:incoming>
+      <bpmn:outgoing>Flow_07if3dp</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_1w82kis" name="End Gateway">
+      <bpmn:incoming>Flow_0mln2sn</bpmn:incoming>
+      <bpmn:incoming>Flow_07if3dp</bpmn:incoming>
+      <bpmn:outgoing>Flow_1u148i6</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0mln2sn" sourceRef="Activity_16kupjo" targetRef="Gateway_1w82kis" />
+    <bpmn:sequenceFlow id="Flow_07if3dp" sourceRef="Activity_1aguwj6" targetRef="Gateway_1w82kis" />
+    <bpmn:endEvent id="Event_17h2kby" name="End Event">
+      <bpmn:incoming>Flow_1u148i6</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1u148i6" sourceRef="Gateway_1w82kis" targetRef="Event_17h2kby" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="zalora_checkout">
+      <bpmndi:BPMNShape id="Event_03ufvv9_di" bpmnElement="Event_03ufvv9">
+        <dc:Bounds x="162" y="212" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="153" y="255" width="55" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1yo75jq_di" bpmnElement="Activity_1g4rpg6">
+        <dc:Bounds x="250" y="190" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0htxyfu_di" bpmnElement="Activity_1q7lfun">
+        <dc:Bounds x="410" y="190" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1qet7qr_di" bpmnElement="Activity_1wri3gj">
+        <dc:Bounds x="570" y="190" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1j7qodd_di" bpmnElement="Activity_1m1ff0x">
+        <dc:Bounds x="690" y="310" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0dsyg76_di" bpmnElement="Event_0dsyg76">
+        <dc:Bounds x="842" y="332" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="835" y="375" width="51" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0me4mlt_di" bpmnElement="Gateway_0me4mlt" isMarkerVisible="true">
+        <dc:Bounds x="735" y="205" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="725" y="262" width="70" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1prolh5_di" bpmnElement="Activity_1aguwj6">
+        <dc:Bounds x="880" y="190" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_04xm8xn_di" bpmnElement="Activity_16kupjo">
+        <dc:Bounds x="880" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1w82kis_di" bpmnElement="Gateway_1w82kis" isMarkerVisible="true">
+        <dc:Bounds x="1065" y="205" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1056" y="265" width="67" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_17h2kby_di" bpmnElement="Event_17h2kby">
+        <dc:Bounds x="1192" y="212" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1185" y="255" width="51" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_03t3x79_di" bpmnElement="Event_1eusv81">
+        <dc:Bounds x="602" y="252" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0cajegj_di" bpmnElement="Flow_0cajegj">
+        <di:waypoint x="198" y="230" />
+        <di:waypoint x="250" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_02tum6j_di" bpmnElement="Flow_02tum6j">
+        <di:waypoint x="350" y="230" />
+        <di:waypoint x="410" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19civro_di" bpmnElement="Flow_19civro">
+        <di:waypoint x="510" y="230" />
+        <di:waypoint x="570" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10disqx_di" bpmnElement="Flow_10disqx">
+        <di:waypoint x="670" y="230" />
+        <di:waypoint x="735" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1eh5ksc_di" bpmnElement="Flow_1eh5ksc">
+        <di:waypoint x="620" y="288" />
+        <di:waypoint x="620" y="350" />
+        <di:waypoint x="690" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kj0ur3_di" bpmnElement="Flow_0kj0ur3">
+        <di:waypoint x="790" y="350" />
+        <di:waypoint x="842" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0hdnx7x_di" bpmnElement="Flow_0hdnx7x">
+        <di:waypoint x="760" y="205" />
+        <di:waypoint x="760" y="120" />
+        <di:waypoint x="880" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="793" y="103" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1sx8lz8_di" bpmnElement="Flow_1sx8lz8">
+        <di:waypoint x="785" y="230" />
+        <di:waypoint x="880" y="230" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="795" y="212" width="76" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mln2sn_di" bpmnElement="Flow_0mln2sn">
+        <di:waypoint x="980" y="120" />
+        <di:waypoint x="1090" y="120" />
+        <di:waypoint x="1090" y="205" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_07if3dp_di" bpmnElement="Flow_07if3dp">
+        <di:waypoint x="980" y="230" />
+        <di:waypoint x="1065" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1u148i6_di" bpmnElement="Flow_1u148i6">
+        <di:waypoint x="1115" y="230" />
+        <di:waypoint x="1192" y="230" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

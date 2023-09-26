@@ -1,0 +1,61 @@
+{
+  "components": [
+    {
+      "text": "# Welcome to Zalora!",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_03mgpbh",
+        "columns": null
+      },
+      "id": "Field_1trzvwz"
+    },
+    {
+      "label": "What is your name?",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_02y9qne",
+        "columns": null
+      },
+      "id": "Field_02r6cj8",
+      "key": "name",
+      "validate": {
+        "maxLength": 255
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "T-Shirt",
+          "value": "T-Shirt"
+        },
+        {
+          "label": "Jacket",
+          "value": "Jacket"
+        },
+        {
+          "label": "Trouser",
+          "value": "Trouser"
+        }
+      ],
+      "label": "Select the clothes you want to buy!",
+      "type": "select",
+      "layout": {
+        "row": "Row_1gflzuo",
+        "columns": null
+      },
+      "id": "Field_1tbgad5",
+      "key": "clothes",
+      "searchable": true
+    }
+  ],
+  "type": "default",
+  "id": "checkout_form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.2.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.15.0"
+  },
+  "schemaVersion": 10
+}
