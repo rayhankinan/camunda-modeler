@@ -7,6 +7,7 @@ import { env } from "@environment/server";
 // Import external dependencies
 import { Duration, ZBClient } from "zeebe-node";
 import { match } from "ts-pattern";
+import { z } from "zod";
 
 // Instantiate ZBClient
 const zbc = new ZBClient(env.ZEEBE_GATEWAY_ADDRESS, {
@@ -20,21 +21,19 @@ const zbc = new ZBClient(env.ZEEBE_GATEWAY_ADDRESS, {
 const worker = zbc.createWorker({
   taskType: "zalora-invoice",
   taskHandler: async (job) => {
-    // Do existence checking
-    if (!job.variables.clothes || !job.variables.name) {
-      return await job.error("NO_CLOTHES", "No clothes in order");
-    }
+    // Create variable schema
+    const schema = z.object({
+      clothes: z.string(),
+      name: z.string(),
+    });
 
-    // Do type checking
-    if (
-      typeof job.variables.clothes !== "string" ||
-      typeof job.variables.name !== "string"
-    ) {
-      return await job.error("INVALID_CLOTHES", "Invalid clothes in order");
-    }
+    // Do schema parsing
+    const parsed = schema.safeParse(job.variables);
 
-    // TODO: Lakukan checking ke database
-    const name = job.variables.name;
+    // Check if schema parsing is successful
+    if (!parsed.success) {
+      return await job.error("INVALID_VARIABLES", "Invalid variables");
+    }
 
     // TODO: Ubah ini jadi akses ke database
     const price = match(job.variables.clothes)
@@ -43,7 +42,7 @@ const worker = zbc.createWorker({
       .with("Trouser", () => 30)
       .otherwise(() => 0);
 
-    worker.log(`Invoice for ${name} is ${price}`);
+    worker.log(`Invoice for ${parsed.data.name} is ${price}`);
 
     return await job.complete({
       price,
