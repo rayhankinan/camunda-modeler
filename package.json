@@ -14,8 +14,8 @@
     "lint": "eslint --config .eslintrc.cjs --ext .ts .",
     "migrate-dev": "prisma migrate dev",
     "migrate-deploy": "prisma migrate deploy",
-    "build": "cross-env NODE_ENV=production tsc src/* --outDir dist",
-    "start": "cross-env NODE_ENV=production node dist/main.js",
+    "build": "tsc src/* --outDir dist",
+    "start": "env-cmd cross-env NODE_ENV=production node dist/main.js",
     "dev": "env-cmd cross-env NODE_ENV=development nodemon src/main.ts",
     "studio": "prisma studio",
     "postinstall": "yarn generate"
