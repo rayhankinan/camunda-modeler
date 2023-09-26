@@ -4,6 +4,7 @@ import { z } from "zod";
 
 export const env = createEnv({
   server: {
+    DATABASE_URL: z.string().url(),
     ZEEBE_GATEWAY_ADDRESS: z.string().url(),
   },
   runtimeEnv: process.env,
