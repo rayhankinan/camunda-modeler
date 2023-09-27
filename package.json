@@ -27,9 +27,6 @@
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
-  "_moduleAliases": {
-    "@environment": "src/environment"
-  },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/eslint": "^8.44.3",
