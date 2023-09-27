@@ -1,15 +1,8 @@
-// Use module-alias to import module from root directory
-import moduleAlias from "module-alias";
+// Get modules
+import { registerModule } from "./register-module";
 
-console.log(__dirname + "/environment");
-
-// Register module-alias
-moduleAlias.addAliases({
-  "@environment": __dirname + "/environment",
-});
-
-// Execute module-alias
-moduleAlias();
+// Register module
+registerModule();
 
 // Import internal dependencies
 import { env } from "@environment/server";
