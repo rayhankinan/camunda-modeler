@@ -11,17 +11,17 @@
       "id": "Field_1cnz6if"
     },
     {
-      "text": "Hello {{name}}!",
+      "text": "You bought {{invoice}}.",
       "label": "Text view",
       "type": "text",
       "layout": {
-        "row": "Row_05o9z0l",
+        "row": "Row_08sk8m8",
         "columns": null
       },
-      "id": "Field_1axgg33"
+      "id": "Field_0m5wbks"
     },
     {
-      "text": "Your Total: {{price}} dollar(s)",
+      "text": "Your Total: {{total}} dollar(s).",
       "label": "Text view",
       "type": "text",
       "layout": {
@@ -31,24 +31,14 @@
       "id": "Field_1wv4w4q"
     },
     {
-      "values": [
-        {
-          "label": "Yes",
-          "value": "Yes"
-        },
-        {
-          "label": "No",
-          "value": "No"
-        }
-      ],
-      "label": "Please pay the equal amount!",
-      "type": "radio",
+      "label": "I understand and wish to proceed!",
+      "type": "checkbox",
       "layout": {
-        "row": "Row_0sx99hs",
+        "row": "Row_0hfgso2",
         "columns": null
       },
-      "id": "Field_0s75ukb",
-      "key": "isPaying"
+      "id": "Field_1jhsk2v",
+      "key": "continuePayment"
     }
   ],
   "type": "default",

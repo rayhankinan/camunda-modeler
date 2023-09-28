@@ -1,29 +1,31 @@
 {
   "components": [
     {
-      "text": "# Welcome to Zalora!",
+      "text": "# Payment to Zalora",
       "label": "Text view",
       "type": "text",
       "layout": {
-        "row": "Row_03mgpbh",
+        "row": "Row_0c92cwq",
         "columns": null
       },
-      "id": "Field_1trzvwz"
+      "id": "Field_0a0jco0"
     },
     {
-      "label": "Select the clothes you want to buy!",
-      "type": "checklist",
+      "label": "Please enter your password to proceed!",
+      "type": "textfield",
       "layout": {
-        "row": "Row_1m383bc",
+        "row": "Row_1071jj7",
         "columns": null
       },
-      "id": "Field_13q9ofp",
-      "key": "selectedItemIds",
-      "valuesKey": "itemData"
+      "id": "Field_04635y8",
+      "key": "password",
+      "validate": {
+        "required": true
+      }
     }
   ],
   "type": "default",
-  "id": "checkout_form",
+  "id": "Form_0evoz5w",
   "executionPlatform": "Camunda Cloud",
   "executionPlatformVersion": "8.2.0",
   "exporter": {

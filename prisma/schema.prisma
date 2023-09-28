@@ -10,6 +10,35 @@ datasource db {
 
 model User {
     id           String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-    username     String @unique
+    email        String @unique
     passwordHash String
+
+    Payment Payment[]
+}
+
+model Item {
+    id    String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+    name  String @unique
+    price Int
+
+    BoughtItem BoughtItem[]
+}
+
+model Payment {
+    id     String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+    userId String  @db.Uuid
+    total  Int
+    isPaid Boolean @default(false)
+
+    User       User         @relation(fields: [userId], references: [id])
+    BoughtItem BoughtItem[]
+}
+
+model BoughtItem {
+    id        String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+    paymentId String @db.Uuid
+    itemId    String @db.Uuid
+
+    Payment Payment @relation(fields: [paymentId], references: [id])
+    Item    Item    @relation(fields: [itemId], references: [id])
 }

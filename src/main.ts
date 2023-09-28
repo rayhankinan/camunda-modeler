@@ -30,7 +30,9 @@ void (async () => {
   console.log("Deployed process:", JSON.stringify(res, null, 2));
 
   // Create workflow instance
-  const result = await zbc.createProcessInstance("zalora_checkout", {});
+  const result = await zbc.createProcessInstance("zalora_checkout", {
+    userId: "afe16982-7696-4280-a13a-5dd93ff89cb0",
+  });
 
   // Display workflow instance result
   console.log("Process result:", JSON.stringify(result, null, 2));
