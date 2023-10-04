@@ -5,7 +5,6 @@ export const registerModule = () => {
   // Register module-alias
   moduleAlias.addAliases({
     "@environment": __dirname + "/environment",
-    "@mail": __dirname + "/mail",
   });
 
   // Execute module-alias
